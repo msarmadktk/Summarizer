@@ -1,18 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>PubMed Article Summarizer</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>PubMed Article Summarizer</h1>
-    <form method="post">
-        <textarea name="article" rows="10" cols="50" placeholder="Paste your PubMed article here"></textarea>
-        <br>
-        <button type="submit">Summarize</button>
-    </form>
-    <h2>Summary:</h2>
-    <p>{{ summary }}</p>
+    <div class="container">
+        <h1>PubMed Article Summarizer</h1>
+        <form method="post">
+            <label for="article">Enter PubMed Article:</label><br>
+            <textarea id="article" name="article" rows="10" cols="100"></textarea><br><br>
+
+            <label for="num_sentences">Number of Sentences in Summary:</label><br>
+            <input type="number" id="num_sentences" name="num_sentences" min="1" value="5"><br><br>
+
+            <label for="algorithm">Summarization Algorithm:</label><br>
+            <select id="algorithm" name="algorithm">
+                <option value="lsa">LSA</option>
+                <option value="lex_rank">LexRank</option>
+                <option value="text_rank">TextRank</option>
+            </select><br><br>
+
+            <input type="submit" value="Summarize">
+        </form>
+        <h2>Summary:</h2>
+        <p>{{ summary }}</p>
+    </div>
 </body>
 </html>
