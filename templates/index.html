@@ -5,8 +5,13 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>PubMed Article Summarizer</h1>
+            <p>Simplify your research with concise summaries of PubMed articles</p>
+        </div>
+    </div>
     <div class="container">
-        <h1>PubMed Article Summarizer</h1>
         <form method="post">
             <label for="article">Enter PubMed Article:</label><br>
             <textarea id="article" name="article" rows="10" cols="100"></textarea><br><br>
@@ -21,7 +26,7 @@
                 <option value="text_rank">TextRank</option>
             </select><br><br>
 
-            <input type="submit" value="Summarize">
+            <input class="submit-button" type="submit" value="Summarize">
         </form>
         <h2>Summary:</h2>
         <p>{{ summary }}</p>
